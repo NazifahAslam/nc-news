@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { getarticleById } from '../apiArticleId';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Comments from './comments';
 
 function Article() {
   const [article, setArticle] = useState(null);
@@ -25,13 +27,13 @@ function Article() {
       });
   }, [id]);
 
-  //   if (loading) {
-  //     return <p>Loading ...</p>;
-  //   }
+  if (loading) {
+    return <p>Loading ...</p>;
+  }
 
-  //   if (error) {
-  //     return <p>{error}</p>;
-  //   }
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   if (!article) {
     return <p>No article found on {id}</p>;
@@ -59,6 +61,7 @@ function Article() {
       <p>Comments: {comment_count}</p>
       <p>Created at: {created_at}</p>
       <img src={article_img_url} />
+      {<Comments />}
     </>
   );
 }
