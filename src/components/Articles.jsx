@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getarticles } from '../api';
-import Article from './Article';
+import { getarticles } from '../apiArticle';
+import ArticleList from './ArticleList';
 
 function Articles() {
   const [articles, setArticles] = useState([]);
@@ -10,7 +10,6 @@ function Articles() {
   useEffect(() => {
     getarticles()
       .then(({ articles }) => {
-        console.log(articles);
         setArticles(articles);
         setLoading(false);
       })
@@ -38,7 +37,7 @@ function Articles() {
     <>
       <ul>
         {articles.map((article) => {
-          return <Article key={article.id} article={article} />;
+          return <ArticleList key={article.article_id} article={article} />;
         })}
       </ul>
     </>
