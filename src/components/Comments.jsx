@@ -38,8 +38,6 @@ function Comments() {
     return <p>No comments found on {id} article</p>;
   }
 
-  const { comment_id, votes, created_at, author, body, article_id } = comments;
-
   return (
     <>
       <ul>
@@ -47,7 +45,6 @@ function Comments() {
           return <CommentList key={comment.comment_id} comment={comment} />;
         })}
       </ul>
-      <p>{body}</p>
     </>
   );
 }

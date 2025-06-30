@@ -14,3 +14,13 @@ li {
   text-align: center;
   list-style-type: none;
 }
+
+.navbar {
+  background-color: green;
+}
+
+.nav-components {
+  background-color: rgb(205, 218, 186);
+  display: inline-block;
+  margin: 10px;
+}
